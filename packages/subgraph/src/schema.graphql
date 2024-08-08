@@ -1,17 +1,40 @@
-type Greeting @entity {
+type Event @entity {
   id: ID!
-  sender: Sender!
-  greeting: String!
-  premium: Boolean
-  value: BigInt
-  createdAt: BigInt!
-  transactionHash: String!
+  eventID: Bytes!
+  name: String
+  description: String
+  link: String
+  imageURL: String
+  eventDataCID: String
+  eventOwner: Bytes!
+  eventTimestamp: BigInt!
+  maxCapacity: BigInt!
+  deposit: BigInt!
+  paidOut: Boolean!
+  totalRSVPs: BigInt!
+  totalConfirmedAttendees: BigInt!
+  rsvps: [RSVP!] @derivedFrom(field: "event")
+  confirmedAttendees: [Confirmation!] @derivedFrom(field: "event")
 }
 
-type Sender @entity {
+# @derivedFrom, also called a reverse lookup, allows us to reference data from another entity
+
+type Account @entity {
   id: ID!
-  address: Bytes!
-  greetings: [Greeting!] @derivedFrom(field: "sender")
-  createdAt: BigInt!
-  greetingCount: BigInt!
+  totalRSVPs: BigInt!
+  totalAttendedEvents: BigInt!
+  rsvps: [RSVP!] @derivedFrom(field: "attendee")
+  attendedEvents: [Confirmation!] @derivedFrom(field: "attendee")
+}
+
+type RSVP @entity {
+  id: ID!
+  attendee: Account!
+  event: Event!
+}
+
+type Confirmation @entity {
+  id: ID!
+  attendee: Account!
+  event: Event!
 }

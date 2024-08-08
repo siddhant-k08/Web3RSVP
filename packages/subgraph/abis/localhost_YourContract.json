@@ -1,139 +1,230 @@
 [
   {
+    "anonymous": false,
     "inputs": [
       {
+        "indexed": false,
+        "internalType": "bytes32",
+        "name": "eventId",
+        "type": "bytes32"
+      },
+      {
+        "indexed": false,
         "internalType": "address",
-        "name": "_owner",
+        "name": "attendeeAddress",
         "type": "address"
       }
     ],
-    "stateMutability": "nonpayable",
-    "type": "constructor"
+    "name": "ConfirmedAttendee",
+    "type": "event"
   },
   {
     "anonymous": false,
     "inputs": [
       {
-        "indexed": true,
-        "internalType": "address",
-        "name": "greetingSetter",
-        "type": "address"
-      },
-      {
         "indexed": false,
-        "internalType": "string",
-        "name": "newGreeting",
-        "type": "string"
-      },
-      {
-        "indexed": false,
-        "internalType": "bool",
-        "name": "premium",
-        "type": "bool"
-      },
-      {
-        "indexed": false,
-        "internalType": "uint256",
-        "name": "value",
-        "type": "uint256"
+        "internalType": "bytes32",
+        "name": "eventId",
+        "type": "bytes32"
       }
     ],
-    "name": "GreetingChange",
+    "name": "DepositsPaidOut",
     "type": "event"
   },
   {
-    "inputs": [],
-    "name": "greeting",
-    "outputs": [
+    "anonymous": false,
+    "inputs": [
       {
+        "indexed": false,
+        "internalType": "bytes32",
+        "name": "eventId",
+        "type": "bytes32"
+      },
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "creatorAddress",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "eventTimestamp",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "maxCapacity",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "deposit",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
         "internalType": "string",
-        "name": "",
+        "name": "eventDataCID",
         "type": "string"
       }
     ],
-    "stateMutability": "view",
-    "type": "function"
+    "name": "NewEventCreated",
+    "type": "event"
   },
   {
-    "inputs": [],
-    "name": "owner",
-    "outputs": [
+    "anonymous": false,
+    "inputs": [
       {
+        "indexed": false,
+        "internalType": "bytes32",
+        "name": "eventId",
+        "type": "bytes32"
+      },
+      {
+        "indexed": false,
         "internalType": "address",
-        "name": "",
+        "name": "attendeeAddress",
         "type": "address"
       }
     ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "premium",
-    "outputs": [
-      {
-        "internalType": "bool",
-        "name": "",
-        "type": "bool"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
+    "name": "NewRSVP",
+    "type": "event"
   },
   {
     "inputs": [
       {
-        "internalType": "string",
-        "name": "_newGreeting",
-        "type": "string"
+        "internalType": "bytes32",
+        "name": "eventId",
+        "type": "bytes32"
       }
     ],
-    "name": "setGreeting",
-    "outputs": [],
-    "stateMutability": "payable",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "totalCounter",
-    "outputs": [
-      {
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-      }
-    ],
-    "name": "userGreetingCounter",
-    "outputs": [
-      {
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "withdraw",
+    "name": "confirmAllAttendees",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
   },
   {
+    "inputs": [
+      {
+        "internalType": "bytes32",
+        "name": "eventId",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "address",
+        "name": "attendee",
+        "type": "address"
+      }
+    ],
+    "name": "confirmAttendee",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "eventTimestamp",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "deposit",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "maxCapacity",
+        "type": "uint256"
+      },
+      {
+        "internalType": "string",
+        "name": "eventDataCID",
+        "type": "string"
+      }
+    ],
+    "name": "createNewEvent",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes32",
+        "name": "eventId",
+        "type": "bytes32"
+      }
+    ],
+    "name": "createNewRSVP",
+    "outputs": [],
     "stateMutability": "payable",
-    "type": "receive"
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes32",
+        "name": "",
+        "type": "bytes32"
+      }
+    ],
+    "name": "idToEvent",
+    "outputs": [
+      {
+        "internalType": "bytes32",
+        "name": "eventId",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "string",
+        "name": "eventDataCID",
+        "type": "string"
+      },
+      {
+        "internalType": "address",
+        "name": "eventOwner",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "eventTimestamp",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "deposit",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "maxCapacity",
+        "type": "uint256"
+      },
+      {
+        "internalType": "bool",
+        "name": "paidOut",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes32",
+        "name": "eventId",
+        "type": "bytes32"
+      }
+    ],
+    "name": "withdrawUnclaimedDeposits",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
   }
 ]

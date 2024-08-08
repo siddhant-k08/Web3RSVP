@@ -4,6 +4,243 @@
  */
 import { GenericContractsDeclaration } from "~~/utils/scaffold-eth/contract";
 
-const deployedContracts = {} as const;
+const deployedContracts = {
+  31337: {
+    YourContract: {
+      address: "0x5FbDB2315678afecb367f032d93F642f64180aa3",
+      abi: [
+        {
+          anonymous: false,
+          inputs: [
+            {
+              indexed: false,
+              internalType: "bytes32",
+              name: "eventId",
+              type: "bytes32",
+            },
+            {
+              indexed: false,
+              internalType: "address",
+              name: "attendeeAddress",
+              type: "address",
+            },
+          ],
+          name: "ConfirmedAttendee",
+          type: "event",
+        },
+        {
+          anonymous: false,
+          inputs: [
+            {
+              indexed: false,
+              internalType: "bytes32",
+              name: "eventId",
+              type: "bytes32",
+            },
+          ],
+          name: "DepositsPaidOut",
+          type: "event",
+        },
+        {
+          anonymous: false,
+          inputs: [
+            {
+              indexed: false,
+              internalType: "bytes32",
+              name: "eventId",
+              type: "bytes32",
+            },
+            {
+              indexed: false,
+              internalType: "address",
+              name: "creatorAddress",
+              type: "address",
+            },
+            {
+              indexed: false,
+              internalType: "uint256",
+              name: "eventTimestamp",
+              type: "uint256",
+            },
+            {
+              indexed: false,
+              internalType: "uint256",
+              name: "maxCapacity",
+              type: "uint256",
+            },
+            {
+              indexed: false,
+              internalType: "uint256",
+              name: "deposit",
+              type: "uint256",
+            },
+            {
+              indexed: false,
+              internalType: "string",
+              name: "eventDataCID",
+              type: "string",
+            },
+          ],
+          name: "NewEventCreated",
+          type: "event",
+        },
+        {
+          anonymous: false,
+          inputs: [
+            {
+              indexed: false,
+              internalType: "bytes32",
+              name: "eventId",
+              type: "bytes32",
+            },
+            {
+              indexed: false,
+              internalType: "address",
+              name: "attendeeAddress",
+              type: "address",
+            },
+          ],
+          name: "NewRSVP",
+          type: "event",
+        },
+        {
+          inputs: [
+            {
+              internalType: "bytes32",
+              name: "eventId",
+              type: "bytes32",
+            },
+          ],
+          name: "confirmAllAttendees",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "bytes32",
+              name: "eventId",
+              type: "bytes32",
+            },
+            {
+              internalType: "address",
+              name: "attendee",
+              type: "address",
+            },
+          ],
+          name: "confirmAttendee",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "uint256",
+              name: "eventTimestamp",
+              type: "uint256",
+            },
+            {
+              internalType: "uint256",
+              name: "deposit",
+              type: "uint256",
+            },
+            {
+              internalType: "uint256",
+              name: "maxCapacity",
+              type: "uint256",
+            },
+            {
+              internalType: "string",
+              name: "eventDataCID",
+              type: "string",
+            },
+          ],
+          name: "createNewEvent",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "bytes32",
+              name: "eventId",
+              type: "bytes32",
+            },
+          ],
+          name: "createNewRSVP",
+          outputs: [],
+          stateMutability: "payable",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "bytes32",
+              name: "",
+              type: "bytes32",
+            },
+          ],
+          name: "idToEvent",
+          outputs: [
+            {
+              internalType: "bytes32",
+              name: "eventId",
+              type: "bytes32",
+            },
+            {
+              internalType: "string",
+              name: "eventDataCID",
+              type: "string",
+            },
+            {
+              internalType: "address",
+              name: "eventOwner",
+              type: "address",
+            },
+            {
+              internalType: "uint256",
+              name: "eventTimestamp",
+              type: "uint256",
+            },
+            {
+              internalType: "uint256",
+              name: "deposit",
+              type: "uint256",
+            },
+            {
+              internalType: "uint256",
+              name: "maxCapacity",
+              type: "uint256",
+            },
+            {
+              internalType: "bool",
+              name: "paidOut",
+              type: "bool",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "bytes32",
+              name: "eventId",
+              type: "bytes32",
+            },
+          ],
+          name: "withdrawUnclaimedDeposits",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+      ],
+      inheritedFunctions: {},
+    },
+  },
+} as const;
 
 export default deployedContracts satisfies GenericContractsDeclaration;
